@@ -1,5 +1,5 @@
 # Change in accordance in ../pkg/expath-pkg.xml !!!
-ZIP.ver  := 0.7.0
+ZIP.ver  := 0.9.0
 ZIP.mod  := expath-zip-saxon
 PKG.root := $(ZIP.mod)-$(ZIP.ver)
 PKG.zip  := $(PKG.root)/content
