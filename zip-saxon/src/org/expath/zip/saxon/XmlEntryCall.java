@@ -93,7 +93,7 @@ public class XmlEntryCall
     private Source fromFile(String file, String entry)
             throws XPathException
     {
-        ZipFacade zip = new ZipFacade(myStaticContext.getBaseURI());
+        ZipFacade zip = new ZipFacade(myStaticContext.getStaticBaseURI());
         try {
             return zip.xmlEntry(file, entry);
         }
@@ -105,7 +105,7 @@ public class XmlEntryCall
     private Source fromBytes(byte[] bytes, String entry)
             throws XPathException
     {
-        ZipFacade zip = new ZipFacade(myStaticContext.getBaseURI());
+        ZipFacade zip = new ZipFacade(myStaticContext.getStaticBaseURI());
         try {
             return zip.xmlEntry(bytes, entry);
         }

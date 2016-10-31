@@ -61,7 +61,7 @@ public class ZipFileCall
         }
         NodeInfo struct = (NodeInfo) item;
         // the actual call
-        ZipFacade zip = new ZipFacade(myStaticContext.getBaseURI());
+        ZipFacade zip = new ZipFacade(myStaticContext.getStaticBaseURI());
         byte[] bytes;
         try {
             Element elem = new SaxonElement(struct);

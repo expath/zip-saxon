@@ -72,7 +72,7 @@ public class TextEntryCall
         }
         String entry = second.getStringValue();
         // the actual call
-        ZipFacade zip = new ZipFacade(myStaticContext.getBaseURI());
+        ZipFacade zip = new ZipFacade(myStaticContext.getStaticBaseURI());
         String res;
         try {
             res = zip.textEntry(file, entry);

@@ -73,7 +73,7 @@ public class BinaryEntryCall
         }
         String entry = second.getStringValue();
         // the actual call
-        ZipFacade zip = new ZipFacade(myStaticContext.getBaseURI());
+        ZipFacade zip = new ZipFacade(myStaticContext.getStaticBaseURI());
         byte[] bytes;
         try {
             bytes = zip.binaryEntry(file, entry);

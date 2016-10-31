@@ -75,7 +75,7 @@ public class UpdateEntriesCall
         }
         String dest = second.getStringValue();
         // the actual call
-        ZipFacade zip = new ZipFacade(myStaticContext.getBaseURI());
+        ZipFacade zip = new ZipFacade(myStaticContext.getStaticBaseURI());
         byte[] bytes;
         try {
             Element elem = new SaxonElement(struct);

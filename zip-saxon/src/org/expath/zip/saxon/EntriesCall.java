@@ -58,7 +58,7 @@ public class EntriesCall
         }
         String file = item.getStringValue();
         // the actual call
-        ZipFacade zip = new ZipFacade(myStaticContext.getBaseURI());
+        ZipFacade zip = new ZipFacade(myStaticContext.getStaticBaseURI());
         SaxonTreeBuilder builder = new SaxonTreeBuilder(ctxt);
         try {
             zip.entries(file, builder);

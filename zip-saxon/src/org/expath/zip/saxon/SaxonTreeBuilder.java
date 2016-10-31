@@ -44,7 +44,7 @@ public class SaxonTreeBuilder
         final String uri    = ZipConstants.ZIP_NS_URI;
         NodeName name = new FingerprintedQName(prefix, uri, local_name);
         try {
-            myBuilder.startElement(name, Untyped.getInstance(), 0, 0);
+            myBuilder.startElement(name, Untyped.getInstance(), VoidLocation.instance(), 0);
         }
         catch ( XPathException ex ) {
             throw new ZipException("Error starting element on the Saxon tree builder", ex);
@@ -81,7 +81,7 @@ public class SaxonTreeBuilder
     {
         NodeName name = new NoNamespaceName(local_name);
         try {
-            myBuilder.attribute(name, BuiltInAtomicType.UNTYPED_ATOMIC, value, 0, 0);
+            myBuilder.attribute(name, BuiltInAtomicType.UNTYPED_ATOMIC, value, VoidLocation.instance(), 0);
         }
         catch ( XPathException ex ) {
             throw new ZipException("Error starting content on the Saxon tree builder", ex);
@@ -95,7 +95,7 @@ public class SaxonTreeBuilder
         return myBuilder.getCurrentRoot();
     }
 
-    private Builder myBuilder;
+    private final Builder myBuilder;
 }
 
 

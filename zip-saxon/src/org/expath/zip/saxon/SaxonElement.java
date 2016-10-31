@@ -94,16 +94,15 @@ public class SaxonElement
             throws ZipException
                  , IOException
     {
-        AxisIterator children = myNode.iterateAxis(AxisInfo.CHILD);
         try {
             switch ( serial.getMethod() ) {
                 case "base64": {
-                    Base64BinaryValue val = new Base64BinaryValue(children.getStringValue());
+                    Base64BinaryValue val = new Base64BinaryValue(myNode.getStringValue());
                     out.write(val.getBinaryValue());
                     break;
                 }
                 case "hex": {
-                    HexBinaryValue val = new HexBinaryValue(children.getStringValue());
+                    HexBinaryValue val = new HexBinaryValue(myNode.getStringValue());
                     out.write(val.getBinaryValue());
                     break;
                 }
@@ -117,12 +116,13 @@ public class SaxonElement
                     Receiver              receiver = new ZipNamespaceFilter(base);
                     TreeReceiver          tr       = new TreeReceiver(receiver);
                     tr.open();
+                    AxisIterator children = myNode.iterateAxis(AxisInfo.CHILD);
                     while ( true ) {
                         Item item = children.next();
                         if ( item == null ) {
                             break;
                         }
-                        tr.append(item, 0, NodeInfo.ALL_NAMESPACES);
+                        tr.append(item, VoidLocation.instance(), NodeInfo.ALL_NAMESPACES);
                     }
                     tr.close();
                 }

@@ -73,7 +73,7 @@ public class HtmlEntryCall
         }
         String entry = second.getStringValue();
         // the actual call
-        ZipFacade zip = new ZipFacade(myStaticContext.getBaseURI());
+        ZipFacade zip = new ZipFacade(myStaticContext.getStaticBaseURI());
         Source src;
         try {
             src = zip.htmlEntry(file, entry);
